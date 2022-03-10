@@ -38,7 +38,7 @@
       margin-bottom: 0.25rem;
     }
 
-    .step-3, .step-4, #buttons {
+    .step-3, .step-4, .step-5, .step-6, .step-7, .step-8 {
       padding-left: 16px;
     }
 
@@ -93,20 +93,34 @@
 
     <h2 style="margin-bottom: 0.5rem;">Tool</h2>
     <div id="steps">
+      <p>
+        <strong>Recommended steps:</strong>
+      </p>
+
       <div class="step-1">
-        1. This calibration is devoted to God.
+        1. By declaration: this calibration is devoted to God.
       </div>
       <div class="step-2">
-        2. In the name of God I have permission to calibrate the consciousness level of what is held in mind.
+        2. In the name of the highest good, I have permission to calibrate the consciousness level of &lt;<i>thing that is intended to be calibrated</i>&gt;.
       </div>
       <div id="moreDigitsToCalibrateStep" class="step-3">
-        3. In the name of God there are more digits to calibrate.
+        3. In the name of the highest good, I have permission to ask, if there are more digits to calibrate.
       </div>
       <div class="step-4">
-        4. In the name of God the next digit is a 1.
+        4. If "3." calibrated as true: In the name of the highest good, there are more digits to calibrate.
       </div>
-      <div id="buttons">
+      <div class="step-5">
+        5. If "4." calibrated as true: In the name of the highest good, I have permission to ask, if the next digit is a 1.
+      </div>
+      <div class="step-6">
+        6. If "5." calibrated as true: In the name of the highest good, the next digit is a 1.
         <button id="one">1</button>
+      </div>
+      <div class="step-7">
+        7. If "5." or "6." calibrated as untrue: In the name of the highest good, I have permission to ask, if the next digit is a 0.
+      </div>
+      <div class="step-8">
+        8. If "7." calibrated as true: In the name of the highest good, the next digit is a 0.
         <button id="zero">0</button>
       </div>
     </div>
@@ -139,16 +153,15 @@
 
   const steps = document.getElementById('steps')
   const moreDigitsToCalibrateStep = document.getElementById('moreDigitsToCalibrateStep')
-  const buttons = document.getElementById('buttons')
 
   const stepsBoundingClientRect = steps.getBoundingClientRect()
   const moreDigitsToCalibrateStepBoundingClientRect = moreDigitsToCalibrateStep
     .getBoundingClientRect()
-  const buttonsBoundingClientRect = buttons.getBoundingClientRect()
+  const step8BoundingClientRect = document.querySelector('.step-8').getBoundingClientRect()
 
   const arrow = document.createElement('canvas')
   arrow.width = 16
-  arrow.height = buttonsBoundingClientRect.bottom -
+  arrow.height = step8BoundingClientRect.bottom -
     moreDigitsToCalibrateStepBoundingClientRect.top
   arrow.style.position = 'absolute'
   arrow.style.left = 0 + 'px'
@@ -164,7 +177,7 @@
   const lineWidth = 2
   const offsetLeft = 0.5 * (arrow.width - lineWidth) - 4
   const offsetTop = 0.5 * (moreDigitsToCalibrateStepBoundingClientRect.height - lineWidth)
-  const offsetBottom = Math.ceil(0.5 * (buttonsBoundingClientRect.height - lineWidth))
+  const offsetBottom = Math.ceil(0.5 * (step8BoundingClientRect.height - lineWidth))
   context.fillRect(
     offsetLeft,
     offsetTop,
