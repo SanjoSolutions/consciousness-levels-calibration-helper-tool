@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Consciousness Calibration Helper Tool</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    body {
+      margin: 0.5rem;
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1 1 50%;
+    }
+
+    .column-1 {
+      padding-right: 0.5rem;
+    }
+
+    .column-2 {
+      margin-top: 0.5rem;
+    }
+
+    #steps {
+      position: relative;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-3, .step-4, #buttons {
+      padding-left: 16px;
+    }
+
+    .outputs {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .output-labels {
+      padding-right: 0.25rem;
+    }
+
+    @media (min-width: 817px) {
+      .columns {
+        flex-wrap: nowrap;
+      }
+
+      .column-2 {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<h1 style="margin-top: 0;">Consciousness Calibration Helper Tool</h1>
+<div class="columns">
+  <div class="column column-1">
+    <p>
+      This work is devoted to God.
+    </p>
+    <p>
+      <strong>Reference scale:</strong>
+      <a target="_blank"
+         href="https://books.google.de/books?id=1V_6DwAAQBAJ&lpg=PP1&dq=healing%20and%20recovery&pg=PA475#v=onepage&q=healing%20and%20recovery&f=false">
+        The Map of the Scale of Consciousness by David&nbsp;R.&nbsp;Hawkins</a>
+      (see on the right side or bottom on mobile or one of the books by David R. Hawkins)
+    </p>
+    <p>
+      <strong>Also see:</strong>
+      <a target="_blank"
+         href="https://books.google.de/books?id=1V_6DwAAQBAJ&lpg=PP1&dq=healing%20and%20recovery&pg=PA477#v=onepage&q=healing%20and%20recovery&f=false">
+        How to calibrate the levels of Consciousness</a>
+    </p>
+    <p>
+      <strong>About this tool:</strong><br>
+      This tool can help to encode a consciousness level as a number in the decimal system<br>
+      which has been calibrated with a consciousness calibration technique<br>
+      by verifying the digits of the number encoded as a binary number<br>
+      from the least significant bit to the most significant bit.<br>
+    </p>
+    <div id="steps">
+      <div class="step-1">
+        1. This calibration is devoted to God.
+      </div>
+      <div class="step-2">
+        2. In the name of God I have permission to calibrate the consciousness level of what is held in mind.
+      </div>
+      <div id="moreDigitsToCalibrateStep" class="step-3">
+        3. In the name of God there are more digits to calibrate.
+      </div>
+      <div class="step-4">
+        4. In the name of God the next digit is a 1.
+      </div>
+      <div id="buttons">
+        <button id="one">1</button>
+        <button id="zero">0</button>
+      </div>
+    </div>
+    <div class="outputs" style="margin-top: 0.25rem;">
+      <div class="output-labels">
+        <strong>Number (binary):</strong><br>
+        <strong>Number (decimal):</strong>
+      </div>
+      <div class="output-values">
+        <div id="outputBinary"></div>
+        <div id="outputDecimal"></div>
+      </div>
+    </div>
+  </div>
+  <div class="column column-2">
+    <iframe frameborder="0" scrolling="no" style="border:0px"
+            src="https://books.google.de/books?id=1V_6DwAAQBAJ&lpg=PP1&dq=healing%20and%20recovery&pg=PA475&output=embed"
+            width="500" height="640"></iframe>
+  </div>
+</div>
+
+<script>
+  const $one = document.getElementById('one')
+  const $zero = document.getElementById('zero')
+  const $outputBinary = document.getElementById('outputBinary')
+  const $outputDecimal = document.getElementById('outputDecimal')
+
+  let number = 0n
+  let counter = 0n
+
+  const steps = document.getElementById('steps')
+  const moreDigitsToCalibrateStep = document.getElementById('moreDigitsToCalibrateStep')
+  const buttons = document.getElementById('buttons')
+
+  const stepsBoundingClientRect = steps.getBoundingClientRect()
+  const moreDigitsToCalibrateStepBoundingClientRect = moreDigitsToCalibrateStep
+    .getBoundingClientRect()
+  const buttonsBoundingClientRect = buttons.getBoundingClientRect()
+
+  const arrow = document.createElement('canvas')
+  arrow.width = 16
+  arrow.height = buttonsBoundingClientRect.bottom -
+    moreDigitsToCalibrateStepBoundingClientRect.top
+  arrow.style.position = 'absolute'
+  arrow.style.left = 0 + 'px'
+  arrow.style.top = (
+    moreDigitsToCalibrateStepBoundingClientRect.top -
+    stepsBoundingClientRect.top
+  ) + 'px'
+  arrow.style.imageRendering = 'pixelated'
+  document.getElementById('steps').appendChild(arrow)
+
+  const context = arrow.getContext('2d')
+  context.fillStyle = 'black'
+  const lineWidth = 2
+  const offsetLeft = 0.5 * (arrow.width - lineWidth) - 4
+  const offsetTop = 0.5 * (moreDigitsToCalibrateStepBoundingClientRect.height - lineWidth)
+  const offsetBottom = Math.ceil(0.5 * (buttonsBoundingClientRect.height - lineWidth))
+  context.fillRect(
+    offsetLeft,
+    offsetTop,
+    lineWidth,
+    arrow.height - offsetTop - offsetBottom
+  )
+  const padding = 4
+  context.fillRect(
+    offsetLeft,
+    arrow.height - offsetBottom - lineWidth,
+    arrow.width - offsetLeft - padding,
+    lineWidth
+  )
+
+  const arrowHeadWidth = 4
+  const arrowHeadHeight = 8
+  const x = arrow.width - padding
+  const y = offsetTop + 1
+  context.beginPath()
+  context.moveTo(x, y)
+  context.lineTo(x - arrowHeadWidth, y - 0.5 * arrowHeadHeight)
+  context.lineTo(x - arrowHeadWidth, y + 0.5 * arrowHeadHeight)
+  context.closePath()
+  context.fill()
+  context.fillRect(
+    offsetLeft,
+    offsetTop,
+    arrow.width - offsetLeft - arrowHeadWidth - padding,
+    lineWidth
+  )
+
+  $one.addEventListener('click', () => {
+    number = (1n << counter) | number
+    next()
+    output()
+  })
+
+  $zero.addEventListener('click', () => {
+    next()
+    output()
+  })
+
+  function next() {
+    counter++
+  }
+
+  function output() {
+    $outputBinary.textContent = padStart(number.toString(2), counter, '0')
+    $outputDecimal.textContent = number.toString(10)
+  }
+
+  function padStart(string, maxLength, fillString) {
+    while (string.length + fillString.length <= maxLength) {
+      string = fillString + string
+    }
+    return string
+  }
+</script>
+</body>
+</html>
