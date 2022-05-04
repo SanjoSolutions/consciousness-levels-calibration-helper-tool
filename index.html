@@ -99,38 +99,36 @@
 
     <h2>Steps</h2>
     <div id="steps">
-      <p>The steps are defined in Python syntax.</p>
-
-      <pre class="logic">def calibrateAConsciousnessLevelOfSomething(thing: str) -> str:
+      <pre class="logic">define calibrateAConsciousnessLevelOfSomething(thing: string) -> string:
   devotingSomethingToGod("this calibration")
   if consciousnessCalibrationForAskingForPermission("to calibrate the consciousness level of " + thing):
     consciousnessLevelEncodedInBinary = ""
     while consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("there are more digits to calibrate"):
       if consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("the next digit is a 1"):
         consciousnessLevelEncodedInBinary = "1" + consciousnessLevelEncodedInBinary
-      elif consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("the next digit is a 0"):
+      else if consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("the next digit is a 0"):
         consciousnessLevelEncodedInBinary = "0" + consciousnessLevelEncodedInBinary
       else:
         return None
     return consciousnessLevelEncodedInBinary
   return None
 
-def devotingSomethingToGod(thing: str):
+define devotingSomethingToGod(thing: string):
   # Devoting thing to God.
 
-def consciousnessCalibrationWithAskingForPermission(statement: str) -> bool:
+define consciousnessCalibrationWithAskingForPermission(statement: string) -> boolean:
   if consciousnessCalibrationForAskingForPermission("to ask if " + statement):
     return consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix(statement)
   else:
     return None
 
-def consciousnessCalibrationForAskingForPermission(thing: str) -> bool:
+define consciousnessCalibrationForAskingForPermission(thing: string) -> boolean:
   return consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("I have permission " + thing)
 
-def consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix(statement: str) -> bool:
+define consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix(statement: string) -> boolean:
   return consciousnessCalibration("In the name of the highest good, " + statement + ".")
 
-def consciousnessCalibration(statement: str) -> bool:
+define consciousnessCalibration(statement: string) -> boolean:
   # Consciousness calibration. Result returned as boolean.
       </pre>
     </div>
@@ -203,7 +201,7 @@ def consciousnessCalibration(statement: str) -> bool:
 
   // Syntax highlighting
   function highlightSyntax(element) {
-    const keywordsRegExp = /^( *)(\bdef|while|if|elif|else|return\b)/gm
+    const keywordsRegExp = /^( *)(\bdefine|while|else if|if|else|return\b)/gm
     element.innerHTML = element.textContent.replaceAll(keywordsRegExp, (string, group1, group2) => {
       return `${group1}<span class="keyword">${group2}</span>`
     })
