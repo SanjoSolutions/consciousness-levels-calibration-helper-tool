@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Consciousness Levels Calibration Helper Tool</title>
+  <title>Consciousness Levels Calibration</title>
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <style>
@@ -10,7 +10,11 @@
       margin: 0.5rem;
     }
 
-    p:first-child {
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    p:first-child, h2 + p {
       margin-top: 0;
     }
 
@@ -38,10 +42,6 @@
       margin-bottom: 0.25rem;
     }
 
-    .step-3, .step-4, .step-5, .step-6, .step-7, .step-8 {
-      padding-left: 16px;
-    }
-
     .outputs {
       display: flex;
       flex-direction: row;
@@ -49,6 +49,16 @@
 
     .output-labels {
       padding-right: 0.25rem;
+    }
+
+    .logic {
+      font-family: monospace;
+      font-size: 1rem;
+      white-space: pre;
+    }
+
+    .keyword {
+      font-weight: bold;
     }
 
     @media (min-width: 817px) {
@@ -64,7 +74,10 @@
 </head>
 
 <body>
-<h1 style="margin-top: 0;">Consciousness Levels Calibration Helper Tool</h1>
+<hgroup>
+  <h1 style="margin-top: 0; margin-bottom: 0;">Consciousness Levels Calibration</h1>
+  <h2 style="margin-top: 0;">by calibrating the digits of the number encoded as a binary number</h2>
+</hgroup>
 <div class="columns">
   <div class="column column-1">
     <p>
@@ -83,44 +96,54 @@
          href="https://books.google.de/books?id=1V_6DwAAQBAJ&lpg=PP1&dq=healing%20and%20recovery&pg=PA477#v=onepage&q=healing%20and%20recovery&f=false">
         How to calibrate the levels of Consciousness</a>
     </p>
+
+    <h2>Steps</h2>
+    <div id="steps">
+      <p>The steps are defined in Python syntax.</p>
+
+      <pre class="logic">def calibrateAConsciousnessLevelOfSomething(thing: str) -> str:
+  devotingSomethingToGod("this calibration")
+  if consciousnessCalibrationForAskingForPermission("to calibrate the consciousness level of " + thing):
+    consciousnessLevelEncodedInBinary = ""
+    while consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("there are more digits to calibrate"):
+      if consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("the next digit is a 1"):
+        consciousnessLevelEncodedInBinary = "1" + consciousnessLevelEncodedInBinary
+      elif consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("the next digit is a 0"):
+        consciousnessLevelEncodedInBinary = "0" + consciousnessLevelEncodedInBinary
+      else:
+        return None
+    return consciousnessLevelEncodedInBinary
+  return None
+
+def devotingSomethingToGod(thing: str):
+  # Devoting thing to God.
+
+def consciousnessCalibrationWithAskingForPermission(statement: str) -> bool:
+  if consciousnessCalibrationForAskingForPermission("to ask if " + statement):
+    return consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix(statement)
+  else:
+    return None
+
+def consciousnessCalibrationForAskingForPermission(thing: str) -> bool:
+  return consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix("I have permission " + thing)
+
+def consciousnessCalibrationWithInTheNameOfTheHighestGoodPrefix(statement: str) -> bool:
+  return consciousnessCalibration("In the name of the highest good, " + statement + ".")
+
+def consciousnessCalibration(statement: str) -> bool:
+  # Consciousness calibration. Result returned as boolean.
+      </pre>
+    </div>
+
+
+    <h2>Binary number to decimal number converter</h2>
     <p>
-      <strong>About this tool:</strong><br>
       This tool can help to encode a consciousness level as a number in the decimal system<br>
       which has been calibrated with a consciousness calibration technique<br>
-      by verifying the digits of the number encoded as a binary number<br>
-      from the least significant bit to the most significant bit.<br>
+      by calibrating the digits of the number encoded as a binary number.
     </p>
-
-    <h2 style="margin-bottom: 0.5rem;">Tool</h2>
-    <div id="steps">
-      <strong>Recommended steps:</strong><br>
-      <div class="step-1">
-        1. By declaration: this calibration is devoted to God.
-      </div>
-      <div class="step-2">
-        2. In the name of the highest good, I have permission to calibrate the consciousness level of &lt;<i>thing that is intended to be calibrated</i>&gt;.
-      </div>
-      <div id="moreDigitsToCalibrateStep" class="step-3">
-        3. In the name of the highest good, I have permission to ask, if there are more digits to calibrate.
-      </div>
-      <div class="step-4">
-        4. If "3." calibrated as true: In the name of the highest good, there are more digits to calibrate.
-      </div>
-      <div class="step-5">
-        5. If "4." calibrated as true: In the name of the highest good, I have permission to ask, if the next digit is a 1.
-      </div>
-      <div class="step-6">
-        6. If "5." calibrated as true: In the name of the highest good, the next digit is a 1.
-        <button id="one" title="Please click when the statement has calibrated as true.">1</button>
-      </div>
-      <div class="step-7">
-        7. If "5." or "6." calibrated as untrue: In the name of the highest good, I have permission to ask, if the next digit is a 0.
-      </div>
-      <div class="step-8">
-        8. If "7." calibrated as true: In the name of the highest good, the next digit is a 0.
-        <button id="zero" title="Please click when the statement has calibrated as true.">0</button>
-      </div>
-    </div>
+    <button id="one" title="Please click when the statement has calibrated as true.">1</button>
+    <button id="zero" title="Please click when the statement has calibrated as true.">0</button>
     <div class="outputs" style="margin-top: 0.25rem;">
       <div class="output-labels">
         <strong>Number (binary):</strong><br>
@@ -151,61 +174,6 @@
   const steps = document.getElementById('steps')
   const moreDigitsToCalibrateStep = document.getElementById('moreDigitsToCalibrateStep')
 
-  const stepsBoundingClientRect = steps.getBoundingClientRect()
-  const moreDigitsToCalibrateStepBoundingClientRect = moreDigitsToCalibrateStep
-    .getBoundingClientRect()
-  const step8BoundingClientRect = document.querySelector('.step-8').getBoundingClientRect()
-
-  const arrow = document.createElement('canvas')
-  arrow.width = 16
-  arrow.height = step8BoundingClientRect.bottom -
-    moreDigitsToCalibrateStepBoundingClientRect.top
-  arrow.style.position = 'absolute'
-  arrow.style.left = 0 + 'px'
-  arrow.style.top = (
-    moreDigitsToCalibrateStepBoundingClientRect.top -
-    stepsBoundingClientRect.top
-  ) + 'px'
-  arrow.style.imageRendering = 'pixelated'
-  document.getElementById('steps').appendChild(arrow)
-
-  const context = arrow.getContext('2d')
-  context.fillStyle = 'black'
-  const lineWidth = 2
-  const offsetLeft = 0.5 * (arrow.width - lineWidth) - 4
-  const offsetTop = 0.5 * (moreDigitsToCalibrateStepBoundingClientRect.height - lineWidth)
-  const offsetBottom = Math.ceil(0.5 * (step8BoundingClientRect.height - lineWidth))
-  context.fillRect(
-    offsetLeft,
-    offsetTop,
-    lineWidth,
-    arrow.height - offsetTop - offsetBottom
-  )
-  const padding = 4
-  context.fillRect(
-    offsetLeft,
-    arrow.height - offsetBottom - lineWidth,
-    arrow.width - offsetLeft - padding,
-    lineWidth
-  )
-
-  const arrowHeadWidth = 4
-  const arrowHeadHeight = 8
-  const x = arrow.width - padding
-  const y = offsetTop + 1
-  context.beginPath()
-  context.moveTo(x, y)
-  context.lineTo(x - arrowHeadWidth, y - 0.5 * arrowHeadHeight)
-  context.lineTo(x - arrowHeadWidth, y + 0.5 * arrowHeadHeight)
-  context.closePath()
-  context.fill()
-  context.fillRect(
-    offsetLeft,
-    offsetTop,
-    arrow.width - offsetLeft - arrowHeadWidth - padding,
-    lineWidth
-  )
-
   $one.addEventListener('click', () => {
     number = (1n << counter) | number
     next()
@@ -232,6 +200,17 @@
     }
     return string
   }
+
+  // Syntax highlighting
+  function highlightSyntax(element) {
+    const keywordsRegExp = /^( *)(\bdef|while|if|elif|else|return\b)/gm
+    element.innerHTML = element.textContent.replaceAll(keywordsRegExp, (string, group1, group2) => {
+      return `${group1}<span class="keyword">${group2}</span>`
+    })
+  }
+
+  const logic = document.querySelector('.logic')
+  highlightSyntax(logic)
 </script>
 </body>
 </html>
